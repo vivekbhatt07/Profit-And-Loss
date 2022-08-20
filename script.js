@@ -5,11 +5,15 @@ const calculateBtn = document.querySelector(".calculate-btn");
 const message = document.querySelector(".message");
 
 calculateBtn.addEventListener("click", function submitHandler() {
-  return calculateProfitLoss(
+if(Number(initialPrice.value) > 0 && Number(qty.value) > 0 ) {
+  calculateProfitLoss(
     Number(initialPrice.value),
     Number(currentPrice.value),
     Number(qty.value)
   );
+} else {
+  messageHandler("Invalid Data Entered");
+}
 });
 
 function calculateProfitLoss(initial, current, quantity) {
